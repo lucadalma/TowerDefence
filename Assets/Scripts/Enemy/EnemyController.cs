@@ -16,6 +16,17 @@ public class EnemyController : MonoBehaviour
     private int moveIndex = 0;
     public bool isLoop = true;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+
+            Debug.Log("colpito");
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+
+            enemyHP -= bullet.bulletDamage;
+        }
+    }
 
     void Start()
     {
@@ -33,6 +44,12 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+
+        if (enemyHP <= 0) 
+        {
+            gameObject.SetActive(false);
+        }
+
         Vector3 destination = pointList[moveIndex].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, destination, enemySpeed * Time.deltaTime);
         transform.position = newPos;

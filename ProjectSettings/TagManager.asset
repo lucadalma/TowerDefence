@@ -8,6 +8,8 @@ TagManager:
   - Barrier
   - Path
   - Point
+  - TowerPoint
+  - Bullet
   layers:
   - Default
   - TransparentFX
