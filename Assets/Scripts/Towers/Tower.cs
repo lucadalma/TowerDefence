@@ -6,13 +6,18 @@ public class Tower : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject bulletToShoot;
+    public GameObject bulletToShoot;
 
     [SerializeField]
     GameObject Muzzle;
 
     [SerializeField]
-    float shootRate;
+    public float shootRate;
+
+    [SerializeField]
+    public float damage;
+    private float oldDamage;
+
 
     List<GameObject> enemyList;
 
@@ -25,12 +30,22 @@ public class Tower : MonoBehaviour
     void Start()
     {
         enemyList = new List<GameObject>();
+
+        oldDamage = damage;
     }
 
     private void Update()
     {
 
         FindEnemy();
+
+        if (damage != oldDamage) 
+        {
+            Bullet bullet = bulletToShoot.GetComponent<Bullet>();
+
+            bullet.SetBulletDamage(damage);
+        }
+
     }
 
     private void FixedUpdate()

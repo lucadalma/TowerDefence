@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float bulletSpeed;
 
-    [SerializeField]
     public float bulletDamage;
 
     void Start()
@@ -26,5 +25,10 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+    }
+
+    public void SetBulletDamage(float _damage) 
+    {
+        bulletDamage = _damage;
     }
 }

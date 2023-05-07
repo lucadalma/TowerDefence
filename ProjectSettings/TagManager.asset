@@ -10,6 +10,8 @@ TagManager:
   - Point
   - TowerPoint
   - Bullet
+  - Ground
+  - Placeable
   layers:
   - Default
   - TransparentFX

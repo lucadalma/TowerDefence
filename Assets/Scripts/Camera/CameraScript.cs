@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    GameObject objectSelected;
 
-    // Update is called once per frame
+    public TowerPoint tower;
+
     void Update()
     {
+
+        if (!objectSelected) return;
+
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
+        if (Physics.Raycast(ray, out hit, 10000))
         {
-            Debug.Log(hit.transform.name);
-            Debug.Log("hit");
+            Debug.Log(hit.transform.tag);
+
+            tower = hit.transform.GetComponent<TowerPoint>();
+
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                if (hit.transform.CompareTag("TowerPoint") || hit.transform.CompareTag("Placeable"))
+                {
+                     Vector3 TransformParet = hit.transform.position + new Vector3(0, 0.7f, 0);
+                     Instantiate(objectSelected, TransformParet, Quaternion.identity);
+                }
+            }
         }
     }
 }

@@ -210,9 +210,10 @@ GameObject:
   - component: {fileID: 7990326813870190286}
   - component: {fileID: 906187436894551639}
   - component: {fileID: 8151168603635389199}
+  - component: {fileID: 2319607945446917567}
   m_Layer: 0
   m_Name: Turret1
-  m_TagString: Untagged
+  m_TagString: Placeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,8 +247,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletToShoot: {fileID: 2237194520861370771, guid: a4b12e15c26813e4aade2c40b304be25, type: 3}
-  Muzzle: {fileID: 3364940370184505587}
+  Muzzle: {fileID: 3292724554964986301}
   shootRate: 5
+  damage: 80
 --- !u!136 &8151168603635389199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -262,3 +264,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2319607945446917567
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030383116602878289}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
