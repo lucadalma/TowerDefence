@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 57151485208292991}
   - component: {fileID: 2469010100924341301}
-  - component: {fileID: 7453321871307627387}
   - component: {fileID: 4043326057656558843}
+  - component: {fileID: 7856327013644086984}
   m_Layer: 0
   m_Name: DamageBuff
   m_TagString: Placeable
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57151485208292976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1439726, y: 13.86983, z: -10.143348}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,20 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeBuff: 0
---- !u!136 &7453321871307627387
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57151485208292976}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &4043326057656558843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,6 +64,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &7856327013644086984
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57151485208292976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &57151486100833442
 GameObject:
   m_ObjectHideFlags: 0

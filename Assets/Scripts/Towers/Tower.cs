@@ -46,16 +46,13 @@ public class Tower : MonoBehaviour
             bullet.SetBulletDamage(damage);
         }
 
-    }
-
-    private void FixedUpdate()
-    {
         if (Time.time > nextActionTime && enemyFound == true)
         {
             Instantiate(bulletToShoot, Muzzle.transform.position, gameObject.transform.localRotation);
             nextActionTime += shootRate;
             Debug.Log("Sparo");
         }
+
     }
 
     void OnTriggerEnter(Collider other)

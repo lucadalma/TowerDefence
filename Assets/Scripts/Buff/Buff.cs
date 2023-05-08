@@ -12,6 +12,7 @@ public class Buff : MonoBehaviour
     }
 
     public TypeBuff typeBuff;
+   
 
     public void IncreaseDamage(List<Tower> _towers) 
     {
@@ -25,7 +26,7 @@ public class Buff : MonoBehaviour
     {
         foreach (Tower tower in _towers)
         {
-            tower.shootRate -= 4.9f;
+            tower.shootRate -= 2f;
         }
     }
 
