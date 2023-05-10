@@ -13,11 +13,18 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     float timeToSpawn;
 
+    public int countSpawner = 0;
+
     private float nextActionTime = 0.0f;
 
     void Update()
     {
         SpawnEnemy();
+
+        if (countSpawner == 15)
+        {
+            timeToSpawn = 2;
+        }
     }
 
     public void SpawnEnemy() 
@@ -27,6 +34,7 @@ public class Spawner : MonoBehaviour
             nextActionTime += timeToSpawn;
 
             Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+            countSpawner++;
 
         }
     }

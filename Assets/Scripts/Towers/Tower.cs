@@ -18,24 +18,27 @@ public class Tower : MonoBehaviour
     public float damage;
     private float oldDamage;
 
+    bool enemyFound = true;
 
-    List<GameObject> enemyList;
-
-    private float nextActionTime = 0.0f;
-
-    bool enemyFound = false;
-
-
+    public List<GameObject> enemyList;
 
     void Start()
     {
         enemyList = new List<GameObject>();
 
         oldDamage = damage;
+
+        StartCoroutine(Shoot());
+
     }
 
     private void Update()
     {
+        if (shootRate <= 0) 
+        {
+            shootRate = 0.1f;
+        }
+
 
         FindEnemy();
 
@@ -46,13 +49,12 @@ public class Tower : MonoBehaviour
             bullet.SetBulletDamage(damage);
         }
 
-        if (Time.time > nextActionTime && enemyFound == true)
-        {
-            Instantiate(bulletToShoot, Muzzle.transform.position, gameObject.transform.localRotation);
-            nextActionTime += shootRate;
-            Debug.Log("Sparo");
-        }
-
+        //if (Time.time > nextActionTime && enemyFound == true)
+        //{
+        //    Instantiate(bulletToShoot, Muzzle.transform.position, gameObject.transform.localRotation);
+        //    nextActionTime += shootRate;
+        //    Debug.Log("Sparo");
+        //}
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,12 +79,26 @@ public class Tower : MonoBehaviour
             if (enemy.activeSelf == false)
             {
                 enemyFound = false;
+                enemyList.Remove(enemy);
             }
-            else 
+            else if (enemy.activeSelf == true) 
             {
-                transform.LookAt(enemy.transform);
                 enemyFound = true;
+                transform.LookAt(enemy.transform);
             }
+
+        }
+    }
+
+
+    IEnumerator Shoot()
+    {
+        while (true)
+        {
+            if(enemyFound)
+                Instantiate(bulletToShoot, Muzzle.transform.position, gameObject.transform.localRotation);
+            
+            yield return new WaitForSeconds(shootRate);
         }
     }
 }

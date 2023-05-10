@@ -33,6 +33,8 @@ public class TowerPoint : MonoBehaviour
             Debug.Log("Secondo" + count);
             TowerAdd = Instantiate(camera1.objectSelected, TransformParet, Quaternion.identity);
 
+            camera1.countPlacement++;
+
             if (TowerAdd.GetComponent<Buff>())
             {
                 Buffs.Add(TowerAdd.GetComponent<Buff>());
@@ -63,6 +65,7 @@ public class TowerPoint : MonoBehaviour
             TowerAdd = Instantiate(camera1.objectSelected, TransformParet, Quaternion.identity);
 
             count++;
+            camera1.countPlacement++;
 
             listObjects.Add(TowerAdd);
 

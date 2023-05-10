@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
             uIManager.GameOver();
         }
 
-        if (Input.GetKey(KeyCode.Escape) && gameStatus == GameStatus.GameRunning)
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStatus == GameStatus.GameRunning)
         {
             gameStatus = GameStatus.PauseGame;
         }
-        else if (Input.GetKey(KeyCode.Escape) && gameStatus == GameStatus.PauseGame)
+        else if (Input.GetKeyDown(KeyCode.Escape) && gameStatus == GameStatus.PauseGame)
         {
             gameStatus = GameStatus.GameRunning;
         }

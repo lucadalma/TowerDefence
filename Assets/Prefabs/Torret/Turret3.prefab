@@ -278,5 +278,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletToShoot: {fileID: 2237194520861370771, guid: a4b12e15c26813e4aade2c40b304be25, type: 3}
   Muzzle: {fileID: 875316486562787902}
-  shootRate: 7
-  damage: 100
+  shootRate: 8
+  damage: 45
