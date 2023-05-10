@@ -8,6 +8,13 @@ public class Barrier : MonoBehaviour
     [SerializeField]
     float BarrierHP;
 
+    GameManager gm;
+
+    private void Start()
+    {
+        gm = FindAnyObjectByType<GameManager>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) 
@@ -21,6 +28,7 @@ public class Barrier : MonoBehaviour
     {
         if (BarrierHP <= 0) 
         {
+            gm.gameStatus = GameStatus.GameOver;
             Destroy(gameObject);
         }
     }

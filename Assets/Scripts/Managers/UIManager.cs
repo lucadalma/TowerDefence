@@ -4,15 +4,48 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    public GameObject MainMenuCanvas;
+
+    [SerializeField]
+    public GameObject PauseGameCanvas;
+
+    [SerializeField]
+    public GameObject GameOverCanvas;
+
+    [SerializeField]
+    public GameObject InGameCanvas;
+
+    public void MainMenu() 
     {
-        
+        MainMenuCanvas.SetActive(true);
+        PauseGameCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        InGameCanvas.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PauseGame()
     {
-        
+        MainMenuCanvas.SetActive(false);
+        PauseGameCanvas.SetActive(true);
+        GameOverCanvas.SetActive(false);
+        InGameCanvas.SetActive(false);
     }
+
+    public void GameOver()
+    {
+        MainMenuCanvas.SetActive(false);
+        PauseGameCanvas.SetActive(false);
+        GameOverCanvas.SetActive(true);
+        InGameCanvas.SetActive(false);
+    }
+
+    public void InGame()
+    {
+        MainMenuCanvas.SetActive(false);
+        PauseGameCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        InGameCanvas.SetActive(true);
+    }
+
 }
