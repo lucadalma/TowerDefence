@@ -5,18 +5,18 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
 
-    [SerializeField]
-    public GameObject bulletToShoot;
+    GameObject bulletToShoot;
 
     [SerializeField]
     GameObject Muzzle;
 
     [SerializeField]
+    TowerData towerData;
+
     public float shootRate;
 
-    [SerializeField]
     public float damage;
-    private float oldDamage;
+    float oldDamage;
 
     bool enemyFound = true;
 
@@ -26,7 +26,11 @@ public class Tower : MonoBehaviour
     {
         enemyList = new List<GameObject>();
 
+        bulletToShoot = towerData.bulletToShoot;
+        shootRate = towerData.shootRate;
+        damage = towerData.damage;
         oldDamage = damage;
+
 
         StartCoroutine(Shoot());
 
@@ -90,7 +94,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-
+    
     IEnumerator Shoot()
     {
         while (true)

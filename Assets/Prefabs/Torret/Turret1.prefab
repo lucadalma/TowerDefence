@@ -246,10 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c5869f27c222e4abcee070bb3df64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletToShoot: {fileID: 2237194520861370771, guid: a4b12e15c26813e4aade2c40b304be25, type: 3}
   Muzzle: {fileID: 3292724554964986301}
-  shootRate: 7
-  damage: 30
+  towerData: {fileID: 11400000, guid: ea2088c2107e5454a8f7b7b702c04fb7, type: 2}
+  enemyList: []
 --- !u!136 &8151168603635389199
 CapsuleCollider:
   m_ObjectHideFlags: 0
