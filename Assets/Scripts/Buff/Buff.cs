@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour
 {
+    //enum per i tipi di buff
     public enum TypeBuff 
     {
         Damage,
@@ -13,7 +14,7 @@ public class Buff : MonoBehaviour
 
     public TypeBuff typeBuff;
    
-
+    //Funzione che aumenta il danno
     public void IncreaseDamage(List<Tower> _towers) 
     {
         foreach (Tower tower in _towers)
@@ -22,6 +23,7 @@ public class Buff : MonoBehaviour
         }
     }
 
+    //Funzione che aumenta la frequenza di fuoco
     public void IncreaseRatio(List<Tower> _towers)
     {
         foreach (Tower tower in _towers)
@@ -30,6 +32,8 @@ public class Buff : MonoBehaviour
         }
     }
 
+
+    //Fiunzione che aumenta il range
     public void IncreaseRange(List<Tower> _towers) 
     {
         foreach (Tower tower in _towers)

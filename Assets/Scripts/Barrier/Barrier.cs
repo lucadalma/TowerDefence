@@ -17,6 +17,7 @@ public class Barrier : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //la barriera perde vita
         if (collision.gameObject.CompareTag("Enemy")) 
         {
             BarrierHP -= 50;

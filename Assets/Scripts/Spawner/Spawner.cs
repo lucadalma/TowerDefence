@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour
 
     public void SpawnEnemy() 
     {
+        //istanzio l'enemy ogni tot tempo
         if (Time.time > nextActionTime)
         {
             nextActionTime += timeToSpawn;

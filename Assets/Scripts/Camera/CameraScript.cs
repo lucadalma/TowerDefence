@@ -19,6 +19,7 @@ public class CameraScript : MonoBehaviour
 
     private void Update()
     {
+        //controllo quanti piazzamenti ha fatto il player
         if (countPlacement > 5) 
         {
             uIManager.InGameCanvas.SetActive(false);

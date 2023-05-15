@@ -31,36 +31,33 @@ public class Tower : MonoBehaviour
         damage = towerData.damage;
         oldDamage = damage;
 
-
+        //coroutine per lo shooting
         StartCoroutine(Shoot());
 
     }
 
     private void Update()
     {
+
         if (shootRate <= 0) 
         {
             shootRate = 0.1f;
         }
 
-
+        //funzione che trova l'enemy
         FindEnemy();
 
+
+        //controllo per essere sicuri di aumentare il danno
         if (damage != oldDamage) 
         {
             Bullet bullet = bulletToShoot.GetComponent<Bullet>();
 
             bullet.SetBulletDamage(damage);
         }
-
-        //if (Time.time > nextActionTime && enemyFound == true)
-        //{
-        //    Instantiate(bulletToShoot, Muzzle.transform.position, gameObject.transform.localRotation);
-        //    nextActionTime += shootRate;
-        //    Debug.Log("Sparo");
-        //}
     }
 
+    //se un enemy entra nel range della torretta viene aggiunto nella list
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && !enemyList.Contains(other.gameObject))
@@ -69,6 +66,7 @@ public class Tower : MonoBehaviour
         }
     }
 
+    //se un enemy esce dal range esce anche dalla lista
     void OnTriggerExit(Collider other)
     {
         enemyList.Remove(other.gameObject);
@@ -80,6 +78,7 @@ public class Tower : MonoBehaviour
         {
             if (!enemy) return;
 
+            //controllo se l'enemy è ancora attivo
             if (enemy.activeSelf == false)
             {
                 enemyFound = false;

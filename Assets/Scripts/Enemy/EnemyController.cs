@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-
+        //enemy si muove tra i vari punti
         Vector3 destination = pointList[moveIndex].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, destination, enemySpeed * Time.deltaTime);
         transform.position = newPos;
