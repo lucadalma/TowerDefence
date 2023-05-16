@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, EnemyInterface
 {
     [SerializeField]
     float enemyHP;
@@ -60,7 +60,12 @@ public class EnemyController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        //enemy si muove tra i vari punti
+        Move();
+    }
+
+    //enemy si muove tra i vari punti
+    public void Move() 
+    {
         Vector3 destination = pointList[moveIndex].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, destination, enemySpeed * Time.deltaTime);
         transform.position = newPos;
@@ -73,9 +78,9 @@ public class EnemyController : MonoBehaviour
             {
                 moveIndex++;
             }
-            else 
+            else
             {
-                if (isLoop) 
+                if (isLoop)
                 {
                     moveIndex = 0;
                 }
